@@ -128,19 +128,19 @@ module.exports = (server) => {
         //3개가 전달됨 주소로 model, prompt, headers
         "https://api.openai.com/v1/chat/completions",
         {
-          model: "gpt-4o", //지원 LLM모델명 : gpt-4o, gpt-3.5-turbo, gpt-4, gpt-4o mini
+          model: "gpt-4o", // 지원 LLM모델명 : gpt-4o, gpt-3.5-turbo, gpt-4, gpt-4o mini
           messages: [
             {
               role: "user",
               content: prompt,
             },
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-              },
-            },
           ],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+          },
         }
       );
 
